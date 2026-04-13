@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Policies &amp; Guidelines — World YMCA</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #C8102E;
+  --navy: #1B2A4A;
+  --gold: #C9952A;
+  --green: #2A7A45;
+  --bg: #F6F3EE;
+  --warm: #EDE8DF;
+  --surface: #FFFFFF;
+  --surface2: #FAF8F5;
+  --border: #E2DDD4;
+  --text: #2A2A35;
+  --muted: #6B7280;
+  --light: #9CA3AF;
+  --sidebar-w: 280px;
+  --header-h: 60px;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --shadow-sm: 0 2px 10px rgba(27,42,74,0.06);
+  --shadow: 0 4px 20px rgba(27,42,74,0.09);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── TOPBAR ── */
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--header-h);
+  background: var(--navy);
+  display: flex; align-items: center;
+  padding: 0 28px;
+  gap: 16px;
+}
+
+.topbar-logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 36px; height: 36px;
+  background: var(--red);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.logo-mark svg { width: 18px; height: 18px; }
+
+.logo-text {
+  font-family: 'Lora', serif;
+  font-size: 15px; font-weight: 600;
+  color: #fff; line-height: 1.2;
+}
+.logo-sub {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px; font-weight: 400;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+
+.topbar-pill {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 11.5px; font-weight: 500;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.02em;
+}
+
+.topbar-right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+
+.hub-btn {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.9);
+  padding: 7px 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12.5px; font-weight: 500;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex; align-items: center; gap: 6px;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+.hub-btn:hover { background: rgba(255,255,255,0.22); }
+.hub-btn svg { width: 13px; height: 13px; }
+
+.hamburger {
+  display: none; background: none; border: none;
+  cursor: pointer; color: #fff; padding: 4px;
+}
+.hamburger svg { width: 22px; height: 22px; }
+
+/* ── LAYOUT ── */
+.layout {
+  display: flex;
+  padding-top: var(--header-h);
+  min-height: 100vh;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: var(--sidebar-w);
+  flex-shrink: 0;
+  position: fixed;
+  top: var(--header-h);
+  left: 0;
+  height: calc(100vh - var(--header-h));
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  z-index: 50;
+  display: flex; flex-direction: column;
+}
+
+.sidebar-inner { padding: 24px 0 40px; flex: 1; }
+
+.sidebar-greeting {
+  padding: 0 20px 18px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+.sidebar-greeting-title {
+  font-family: 'Lora', serif;
+  font-size: 14px; font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.sidebar-greeting-sub {
+  font-size: 12px; color: var(--muted);
+  line-height: 1.5;
+}
+
+.sidebar-heading {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--light);
+  padding: 0 20px 8px;
+}
+
+.nav-item {
+  display: block; padding: 0;
+  text-decoration: none; border: none;
+  background: none; width: 100%;
+  text-align: left; cursor: pointer;
+}
+
+.nav-item-inner {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 10px 20px;
+  border-left: 3px solid transparent;
+  transition: background 0.15s, border-color 0.15s;
+  border-radius: 0;
+}
+.nav-item-inner:hover { background: var(--bg); }
+.nav-item.active .nav-item-inner {
+  border-left-color: var(--red);
+  background: #FEF4F6;
+}
+
+.nav-icon {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.nav-icon svg { width: 15px; height: 15px; }
+
+.nav-title {
+  font-size: 13px; font-weight: 600;
+  color: var(--text); line-height: 1.35;
+}
+.nav-item.active .nav-title { color: var(--red); }
+.nav-sub {
+  font-size: 11px; color: var(--light);
+  font-weight: 400; margin-top: 2px; line-height: 1.3;
+}
+
+.nav-divider { height: 1px; background: var(--border); margin: 14px 20px; }
+
+.sidebar-footer {
+  padding: 16px 20px;
+  border-top: 1px solid var(--border);
+  font-size: 11.5px; color: var(--muted);
+  line-height: 1.6;
+  background: var(--surface2);
+}
+.sidebar-footer strong { color: var(--navy); }
+.sidebar-footer a { color: var(--red); text-decoration: none; }
+.sidebar-footer a:hover { text-decoration: underline; }
+
+/* ── MAIN ── */
+.main {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+  padding: 36px 44px 80px;
+  max-width: 100%;
+}
+
+/* ── SECTION ── */
+.policy-section { display: none; max-width: 840px; }
+.policy-section.active { display: block; animation: sectionIn 0.35s ease both; }
+
+@keyframes sectionIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  display: flex; align-items: center; gap: 6px;
+  margin-bottom: 24px;
+  font-size: 12.5px; color: var(--light);
+}
+.breadcrumb a {
+  color: var(--muted); text-decoration: none;
+  display: flex; align-items: center; gap: 5px;
+  transition: color 0.15s;
+  cursor: pointer;
+}
+.breadcrumb a:hover { color: var(--red); }
+.breadcrumb svg { width: 12px; height: 12px; }
+.breadcrumb .sep { color: var(--border); }
+.breadcrumb .current { color: var(--text); font-weight: 500; }
+
+/* Section hero */
+.section-hero {
+  border-radius: var(--radius);
+  padding: 28px 30px;
+  margin-bottom: 22px;
+  display: flex; align-items: flex-start; gap: 20px;
+  position: relative; overflow: hidden;
+}
+.section-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  opacity: 0.04;
+  background-image: radial-gradient(circle at 80% 50%, currentColor 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.hero-icon {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; position: relative;
+}
+.hero-icon svg { width: 28px; height: 28px; }
+
+.hero-text { flex: 1; position: relative; }
+.hero-kicker {
+  font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  opacity: 0.65; margin-bottom: 5px;
+}
+.hero-title {
+  font-family: 'Lora', serif;
+  font-size: 24px; font-weight: 600;
+  line-height: 1.25; margin-bottom: 6px;
+}
+.hero-desc {
+  font-size: 14px; font-weight: 300;
+  line-height: 1.6; opacity: 0.75;
+}
+
+/* Content card */
+.content-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 18px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.content-card:hover { box-shadow: var(--shadow); }
+
+.card-header {
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 10px;
+  background: var(--surface2);
+}
+
+.card-icon {
+  width: 28px; height: 28px;
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.card-icon svg { width: 14px; height: 14px; }
+
+.card-label {
+  font-size: 13px; font-weight: 600;
+  color: var(--navy);
+}
+.card-sub {
+  font-size: 12px; color: var(--muted);
+  font-weight: 400; margin-left: 4px;
+}
+
+.card-body { padding: 24px; }
+
+/* Audience tabs */
+.audience-tabs {
+  display: flex; gap: 6px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.aud-tab {
+  background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12.5px; font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.18s;
+  display: flex; align-items: center; gap: 6px;
+}
+.aud-tab:hover { border-color: var(--navy); color: var(--navy); background: #fff; }
+.aud-tab.active { background: var(--navy); border-color: var(--navy); color: #fff; }
+.aud-tab .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+
+.tab-pane { display: none; }
+.tab-pane.active { display: block; animation: fadeUp 0.22s ease both; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+.tab-pane p {
+  font-size: 15px; line-height: 1.78;
+  color: var(--text);
+}
+.tab-pane p + p { margin-top: 14px; }
+
+.audience-note {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 16px;
+  background: var(--bg); border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 11.5px; color: var(--muted); font-weight: 500;
+}
+.audience-note .dot { width: 6px; height: 6px; border-radius: 50%; }
+
+/* Principles */
+.principles-list { list-style: none; }
+.principles-list li {
+  display: flex; gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--bg);
+}
+.principles-list li:last-child { border-bottom: none; }
+
+.principle-num {
+  font-family: 'Lora', serif;
+  font-size: 22px; font-weight: 400;
+  color: var(--border);
+  width: 30px; flex-shrink: 0;
+  line-height: 1.3;
+}
+.principle-content { flex: 1; }
+.principle-title {
+  font-size: 14.5px; font-weight: 600;
+  color: var(--navy); margin-bottom: 4px;
+}
+.principle-text {
+  font-size: 13.5px; color: var(--muted); line-height: 1.65;
+}
+
+/* Highlights grid */
+.highlights-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+.highlight-item {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  transition: border-color 0.15s, background 0.15s;
+}
+.highlight-item:hover { border-color: #C8D4E8; background: #F0F4FA; }
+.h-title {
+  font-size: 13px; font-weight: 600;
+  color: var(--navy); margin-bottom: 5px;
+  display: flex; align-items: center; gap: 7px;
+}
+.h-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+.h-text { font-size: 13px; color: var(--muted); line-height: 1.58; }
+
+/* Do / Don't */
+.dodonts { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.do-col, .dont-col {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.do-header, .dont-header {
+  padding: 10px 16px;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.04em;
+  display: flex; align-items: center; gap: 7px;
+}
+.do-header {
+  background: #E6F4EC;
+  color: var(--green);
+  border-bottom: 1px solid #C9E8D4;
+}
+.dont-header {
+  background: #FDEAEA;
+  color: var(--red);
+  border-bottom: 1px solid #F5C6CB;
+}
+.do-header svg, .dont-header svg { width: 14px; height: 14px; }
+
+.do-list, .dont-list { list-style: none; }
+.do-list li, .dont-list li {
+  font-size: 13px; line-height: 1.58;
+  padding: 9px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.do-list li:last-child, .dont-list li:last-child { border-bottom: none; }
+.do-list li::before {
+  content: '✓'; font-size: 11px; font-weight: 700;
+  color: var(--green); flex-shrink: 0; margin-top: 2px;
+}
+.dont-list li::before {
+  content: '✕'; font-size: 11px; font-weight: 700;
+  color: var(--red); flex-shrink: 0; margin-top: 2px;
+}
+
+/* FAQ */
+.faq-list { list-style: none; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+
+.faq-q {
+  width: 100%; background: none; border: none;
+  text-align: left; cursor: pointer;
+  padding: 14px 0;
+  display: flex; align-items: flex-start; gap: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  color: var(--navy);
+  transition: color 0.15s;
+}
+.faq-q:hover { color: var(--red); }
+.faq-q.open { color: var(--red); }
+
+.faq-num {
+  width: 22px; height: 22px;
+  background: var(--bg);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10.5px; font-weight: 600;
+  color: var(--muted);
+  flex-shrink: 0; margin-top: 0px;
+  transition: background 0.15s, color 0.15s;
+}
+.faq-q.open .faq-num { background: #FDEAEA; color: var(--red); }
+.faq-q-text { flex: 1; padding-top: 1px; }
+
+.faq-arrow { flex-shrink: 0; margin-left: 6px; margin-top: 3px; transition: transform 0.22s; }
+.faq-q.open .faq-arrow { transform: rotate(180deg); }
+.faq-arrow svg { width: 14px; height: 14px; color: var(--light); }
+
+.faq-a {
+  display: none;
+  padding: 0 0 16px 34px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.72;
+}
+.faq-a.open { display: block; animation: fadeUp 0.2s ease; }
+
+/* ── RESPONSIVE ── */
+/* ── HUB LANDING ── */
+.hub-landing-hero {
+  text-align: center;
+  padding: 40px 24px 36px;
+  background: linear-gradient(160deg, #1B2A4A 0%, #2A3F6A 100%);
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+  position: relative; overflow: hidden;
+}
+.hub-landing-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.hub-landing-logo { display: flex; justify-content: center; margin-bottom: 16px; position: relative; }
+.hub-logo-mark {
+  width: 56px; height: 56px;
+  background: var(--red);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(200,16,46,0.4);
+}
+.hub-landing-kicker {
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: rgba(255,255,255,0.45);
+  margin-bottom: 10px; position: relative;
+}
+.hub-landing-title {
+  font-family: 'Lora', serif; font-size: 32px; font-weight: 600;
+  color: #fff; line-height: 1.2; margin-bottom: 12px; position: relative;
+}
+.hub-landing-desc {
+  font-size: 15px; color: rgba(255,255,255,0.65);
+  line-height: 1.7; max-width: 520px; margin: 0 auto 20px;
+  font-weight: 300; position: relative;
+}
+.hub-landing-meta { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; position: relative; }
+.hub-meta-pill {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 11.5px; color: rgba(255,255,255,0.6);
+  display: flex; align-items: center; gap: 5px;
+}
+
+.hub-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 14px; margin-bottom: 20px;
+}
+
+.hub-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex; align-items: flex-start; gap: 14px;
+  text-align: left; cursor: pointer;
+  transition: border-color 0.18s, box-shadow 0.18s, transform 0.15s;
+  box-shadow: var(--shadow-sm);
+  font-family: 'DM Sans', sans-serif;
+}
+.hub-card:hover {
+  border-color: var(--navy);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+.hub-card-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.hub-card-text { flex: 1; }
+.hub-card-title {
+  font-size: 14px; font-weight: 600; color: var(--navy);
+  margin-bottom: 5px; line-height: 1.3;
+}
+.hub-card-desc {
+  font-size: 12.5px; color: var(--muted); line-height: 1.58;
+}
+.hub-card-arrow {
+  flex-shrink: 0; margin-top: 2px;
+  color: var(--light); transition: color 0.15s, transform 0.15s;
+}
+.hub-card:hover .hub-card-arrow { color: var(--navy); transform: translateX(3px); }
+
+.hub-footer-note {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 18px;
+  font-size: 13px; color: var(--muted);
+  display: flex; align-items: center; gap: 8px;
+}
+.hub-footer-note a { color: var(--red); text-decoration: none; }
+.hub-footer-note a:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); transition: transform 0.25s ease; }
+  .sidebar.open { transform: translateX(0); box-shadow: 6px 0 24px rgba(0,0,0,0.14); }
+  .main { margin-left: 0; padding: 24px 18px 60px; }
+  .hamburger { display: flex; }
+  .highlights-grid, .dodonts, .hub-grid { grid-template-columns: 1fr; }
+  .section-hero { flex-direction: column; gap: 14px; }
+  .hero-title { font-size: 21px; }
+  .hub-landing-title { font-size: 24px; }
+  .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.35); z-index: 49; }
+  .overlay.open { display: block; }
+}
+@media (max-width: 480px) {
+  .audience-tabs { gap: 4px; }
+  .aud-tab { font-size: 11.5px; padding: 5px 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <a class="topbar-logo" href="#">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+    </div>
+    <div class="logo-text">World YMCA <span class="logo-sub">Staff Intranet</span></div>
+  </a>
+  <span class="topbar-pill">Policies &amp; Guidelines</span>
+  <div class="topbar-right">
+    <a class="hub-btn" href="#" onclick="goHub(); return false;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      Policies Hub
+    </a>
+    <button class="hamburger" onclick="toggleSidebar()" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+      <div class="sidebar-greeting">
+        <div class="sidebar-greeting-title">Welcome to our Policy Hub</div>
+        <div class="sidebar-greeting-sub">Select a section below to explore guidelines, principles, and helpful tips.</div>
+      </div>
+
+      <div class="sidebar-heading">Browse Sections</div>
+
+      <button class="nav-item" id="nav-hr" onclick="showSection('hr', this)">
+        <div class="nav-item-inner">
+          <div class="nav-icon" style="background:#EEF2FA;"><svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div><div class="nav-title">Human Resources</div><div class="nav-sub">Employment, conduct &amp; wellbeing</div></div>
+        </div>
+      </button>
+
+      <button class="nav-item" id="nav-safeguarding" onclick="showSection('safeguarding', this)">
+        <div class="nav-item-inner">
+          <div class="nav-icon" style="background:#E6F4EC;"><svg viewBox="0 0 24 24" fill="none" stroke="#2A7A45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><div class="nav-title">Safeguarding &amp; Duty of Care</div><div class="nav-sub">Protection, safety &amp; responsibility</div></div>
+        </div>
+      </button>
+
+      <button class="nav-item" id="nav-programmes" onclick="showSection('programmes', this)">
+        <div class="nav-item-inner">
+          <div class="nav-icon" style="background:#FEF8EC;"><svg viewBox="0 0 24 24" fill="none" stroke="#C9952A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div><div class="nav-title">Programme Delivery</div><div class="nav-sub">Standards, quality &amp; reporting</div></div>
+        </div>
+      </button>
+
+      <button class="nav-item" id="nav-conduct" onclick="showSection('conduct', this)">
+        <div class="nav-item-inner">
+          <div class="nav-icon" style="background:#FEF0F2;"><svg viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+          <div><div class="nav-title">Code of Conduct</div><div class="nav-sub">Values, ethics &amp; professional standards</div></div>
+        </div>
+      </button>
+
+      <div class="nav-divider"></div>
+
+      <button class="nav-item active" id="nav-hub" onclick="goHub()">
+        <div class="nav-item-inner">
+          <div class="nav-icon" style="background:#F2EFE9;"><svg viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div><div class="nav-title" style="color:var(--muted)">Policies Hub</div><div class="nav-sub">All policies overview</div></div>
+        </div>
+      </button>
+    </div>
+
+    <div class="sidebar-footer">
+      <strong>Last reviewed:</strong> April 2026<br>
+      Always use the version published here.<br>
+      Questions? <a href="mailto:sarah@ymca.int">sarah@ymca.int</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- ══════════════════════════════
+         HUB LANDING PAGE
+    ══════════════════════════════ -->
+    <div id="sec-hub" class="policy-section active">
+      <div class="hub-landing-hero">
+        <div class="hub-landing-logo">
+          <div class="hub-logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+        </div>
+        <div class="hub-landing-kicker">World Alliance of YMCAs · Geneva</div>
+        <h1 class="hub-landing-title">Policies &amp; Guidelines</h1>
+        <p class="hub-landing-desc">This is your central reference for how we work, what we value, and what we ask of everyone who is part of the World YMCA community. Select a section below to get started.</p>
+        <div class="hub-landing-meta">
+          <span class="hub-meta-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Last reviewed: April 2026
+          </span>
+          <span class="hub-meta-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Always use the current published version
+          </span>
+        </div>
+      </div>
+
+      <div class="hub-grid">
+        <button class="hub-card" onclick="showSection('hr', document.getElementById('nav-hr'))">
+          <div class="hub-card-icon" style="background:#EEF2FA;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="hub-card-text">
+            <div class="hub-card-title">Human Resources</div>
+            <div class="hub-card-desc">Employment conditions, staff rights, performance, wellbeing, and how World YMCA supports its people.</div>
+          </div>
+          <div class="hub-card-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </button>
+
+        <button class="hub-card" onclick="showSection('safeguarding', document.getElementById('nav-safeguarding'))">
+          <div class="hub-card-icon" style="background:#E6F4EC;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2A7A45" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="hub-card-text">
+            <div class="hub-card-title">Safeguarding &amp; Duty of Care</div>
+            <div class="hub-card-desc">Protecting the safety and dignity of everyone we work with, especially children and vulnerable adults.</div>
+          </div>
+          <div class="hub-card-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </button>
+
+        <button class="hub-card" onclick="showSection('programmes', document.getElementById('nav-programmes'))">
+          <div class="hub-card-icon" style="background:#FEF8EC;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C9952A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="hub-card-text">
+            <div class="hub-card-title">Programme Delivery Protocols</div>
+            <div class="hub-card-desc">The standards and processes for designing, delivering, and evaluating our programmes with quality and impact.</div>
+          </div>
+          <div class="hub-card-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </button>
+
+        <button class="hub-card" onclick="showSection('conduct', document.getElementById('nav-conduct'))">
+          <div class="hub-card-icon" style="background:#FEF0F2;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+          </div>
+          <div class="hub-card-text">
+            <div class="hub-card-title">Code of Conduct &amp; Professional Standards</div>
+            <div class="hub-card-desc">The shared values and behavioural expectations that guide how we act and represent World YMCA.</div>
+          </div>
+          <div class="hub-card-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </button>
+      </div>
+
+      <div class="hub-footer-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+        Questions about any policy? Contact <a href="mailto:sarah@ymca.int">sarah@ymca.int</a>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         HUMAN RESOURCES
+    ══════════════════════════════ -->
+    <div id="sec-hr" class="policy-section">
+      <div class="breadcrumb">
+        <a onclick="goHub()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Policies Hub</a>
+        <span class="sep">›</span>
+        <span class="current">Human Resources</span>
+      </div>
+
+      <div class="section-hero" style="background:linear-gradient(135deg,#EEF2FA 0%,#E0E8F5 100%);color:var(--navy);">
+        <div class="hero-icon" style="background:rgba(255,255,255,0.7);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="hero-text">
+          <div class="hero-kicker">World YMCA · Policies &amp; Guidelines</div>
+          <div class="hero-title">Human Resources</div>
+          <div class="hero-desc">Everything you need to know about how World YMCA supports, develops, and works alongside its people — from your first day to ongoing professional life.</div>
+        </div>
+      </div>
+
+      <!-- INTRO -->
+      <div class="content-card">
+        <div class="card-header">
+          <div class="card-icon" style="background:#EEF2FA;"><svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <span class="card-label">Section Introduction</span>
+          <span class="card-sub">— choose your audience</span>
+        </div>
+        <div class="card-body">
+          <div class="audience-tabs">
+            <button class="aud-tab active" onclick="switchTab(this,'hr-full')"><span class="dot" style="background:#1B2A4A;"></span>Full Staff Version</button>
+            <button class="aud-tab" onclick="switchTab(this,'hr-concise')"><span class="dot" style="background:#C9952A;"></span>Concise Version</button>
+            <button class="aud-tab" onclick="switchTab(this,'hr-vol')"><span class="dot" style="background:#2A7A45;"></span>Volunteer Version</button>
+          </div>
+          <div id="hr-full" class="tab-pane active">
+            <p>The Human Resources policy sets out the framework within which World YMCA recruits, supports, develops, and manages its staff. It applies to all permanent and contract employees across the organisation and reflects our commitment to fair, transparent, and values-driven employment practices.</p>
+            <p>This section covers recruitment and onboarding, contracts and working conditions, performance management, leave entitlements, disciplinary and grievance procedures, and staff wellbeing. All staff are required to familiarise themselves with these policies and apply them consistently in their day-to-day work. Compliance is a condition of employment. Always refer to the current version published here, as it supersedes any earlier documentation.</p>
+            <span class="audience-note"><span class="dot" style="background:#1B2A4A;"></span>For permanent and contract staff</span>
+          </div>
+          <div id="hr-concise" class="tab-pane">
+            <p>This section sets out World YMCA's Human Resources policies, covering recruitment, contracts, performance management, leave, disciplinary procedures, and staff wellbeing. All staff are expected to read and apply these policies as part of their employment. Always refer to the current version published here, as it supersedes any earlier documentation.</p>
+            <span class="audience-note"><span class="dot" style="background:#C9952A;"></span>Quick reference — all staff</span>
+          </div>
+          <div id="hr-vol" class="tab-pane">
+            <p>This section explains how World YMCA looks after the people who work here. It covers how we hire, support, and work with our team. These guidelines help make sure everyone is treated fairly and respectfully. Please read the parts that relate to your role with us.</p>
+            <span class="audience-note"><span class="dot" style="background:#2A7A45;"></span>For volunteers and partners</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- KEY PRINCIPLES -->
+      <div class="content-card">
+        <div class="card-header">
+          <div class="card-icon" style="background:#FEF8EC;"><svg viewBox="0 0 24 24" fill="none" stroke="#C9952A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <span class="card-label">Key Principles</span>
+        </div>
+        <div class="card-body">
+          <ul class="principles-list">
+            <li><span class="principle-num">01</span><div class="principle-content"><div class="principle-title">Fair and Transparent Recruitment</div><div class="principle-text">All hiring decisions are based on merit, competence, and organisational need. Selection processes must be consistent, documented, and free from discrimination.</div></div></li>
+            <li><span class="principle-num">02</span><div class="principle-content"><div class="principle-title">Respect and Dignity at Work</div><div class="principle-text">Every staff member is entitled to a respectful, inclusive, and psychologically safe working environment. Harassment, bullying, or discrimination of any kind is unacceptable.</div></div></li>
+            <li><span class="principle-num">03</span><div class="principle-content"><div class="principle-title">Performance and Development</div><div class="principle-text">World YMCA is committed to supporting the professional growth of all staff through regular reviews, learning opportunities, and constructive feedback.</div></div></li>
+            <li><span class="principle-num">04</span><div class="principle-content"><div class="principle-title">Clear and Accessible Procedures</div><div class="principle-text">Disciplinary, grievance, and appeal processes are clearly defined, applied consistently, and accessible to all staff regardless of role or seniority.</div></div></li>
+            <li><span class="principle-num">05</span><div class="principle-content"><div class="principle-title">Wellbeing as Organisational Responsibility</div><div class="principle-text">Staff health and wellbeing are recognised as integral to organisational effectiveness. World YMCA provides resources and support structures to promote this.</div></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- HIGHLIGHTS -->
+      <div class="content-card">
+        <div class="card-header">
+          <div class="card-icon" style="background:#EEF2FA;"><svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+          <span class="card-label">Policy Highlights</span>
+        </div>
+        <div class="card-body">
+          <div class="highlights-grid">
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Probationary Period</div><div class="h-text">All new employees serve a defined probationary period with structured check-ins and a formal review before confirmation of employment.</div></div>
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Leave Entitlements</div><div class="h-text">Annual leave, sick leave, parental leave, and special leave are outlined in individual contracts and governed by Swiss labour law and organisational policy.</div></div>
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Performance Reviews</div><div class="h-text">Formal performance conversations take place at least annually. Mid-year check-ins are encouraged as standard practice across all departments.</div></div>
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Grievance Procedure</div><div class="h-text">Staff may raise a formal grievance at any time. All complaints are handled confidentially, impartially, and in accordance with the documented procedure.</div></div>
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Conflict of Interest</div><div class="h-text">Staff must disclose any actual or potential conflicts of interest to their line manager. Undisclosed conflicts may constitute a disciplinary matter.</div></div>
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Confidentiality</div><div class="h-text">All staff must maintain confidentiality of personal data, organisational information, and sensitive communications, including after employment ends.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DO / DON'T -->
+      <div class="content-card">
+        <div class="card-header">
+          <div class="card-icon" style="background:#E6F4EC;"><svg viewBox="0 0 24 24" fill="none" stroke="#2A7A45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <span class="card-label">Quick Reference</span>
+          <span class="card-sub">— what to do and what to avoid</span>
+        </div>
+        <div class="card-body">
+          <div class="dodonts">
+            <div class="do-col">
+              <div class="do-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Please do</div>
+              <ul class="do-list">
+                <li>Complete all onboarding documentation before your start date</li>
+                <li>Raise concerns early through your line manager or the grievance process</li>
+                <li>Keep your personal details and emergency contacts up to date</li>
+                <li>Request leave through the approved process with adequate notice</li>
+                <li>Participate actively in your performance review conversations</li>
+              </ul>
+            </div>
+            <div class="dont-col">
+              <div class="dont-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Please avoid</div>
+              <ul class="dont-list">
+                <li>Sharing confidential personnel information with colleagues or third parties</li>
+                <li>Using informal channels to resolve matters that require a formal procedure</li>
+                <li>Taking on additional employment without first disclosing it to management</li>
+                <li>Ignoring a disciplinary or grievance communication — respond within the stated timeframe</li>
+                <li>Misrepresenting qualifications, experience, or identity at any stage of employment</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="content-card">
+        <div class="card-header">
+          <div class="card-icon" style="background:#FEF0F2;"><svg viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+          <span class="card-label">Frequently Asked Questions</span>
+        </div>
+        <div class="card-body">
+          <ul class="faq-list">
+            <li class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">1</span><span class="faq-q-text">Who do I contact if I have a concern about a colleague's behaviour?</span><span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+              <div class="faq-a">Your first point of contact is your line manager. If the concern involves your line manager, you may escalate directly to the Head of HR or use the confidential grievance procedure outlined in the HR policy documents.</div>
+            </li>
+            <li class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">2</span><span class="faq-q-text">Can I work for another organisation while employed by World YMCA?</span><span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+              <div class="faq-a">Secondary employment is not automatically prohibited, but it must be disclosed to your line manager and must not create a conflict of interest or compromise your availability and performance in your primary role.</div>
+            </li>
+            <li class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">3</span><span class="faq-q-text">How far in advance must I request annual leave?</span><span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+              <div class="faq-a">Requests should be submitted with a minimum of two weeks' notice for periods of up to five days, and four weeks' notice for longer periods. Approval is subject to operational needs and is at the discretion of your line manager.</div>
+            </li>
+            <li class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">4</span><span class="faq-q-text">What happens during a disciplinary process?</span><span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+              <div class="faq-a">You will receive written notification of the concern, be given the opportunity to respond, and may be accompanied by a colleague or staff representative at any formal meeting. The full procedure is available on this portal.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════════════
+         SAFEGUARDING
+    ══════════════════════════════ -->
+    <div id="sec-safeguarding" class="policy-section">
+      <div class="breadcrumb">
+        <a onclick="goHub()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Policies Hub</a>
+        <span class="sep">›</span><span class="current">Safeguarding &amp; Duty of Care</span>
+      </div>
+
+      <div class="section-hero" style="background:linear-gradient(135deg,#E6F4EC 0%,#D3EDD9 100%);color:#1A4A28;">
+        <div class="hero-icon" style="background:rgba(255,255,255,0.7);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2A7A45" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="hero-text">
+          <div class="hero-kicker">World YMCA · Policies &amp; Guidelines</div>
+          <div class="hero-title">Safeguarding &amp; Duty of Care</div>
+          <div class="hero-desc">Protecting the safety and dignity of every person we work with — especially children, young people, and vulnerable adults — is a shared responsibility we take seriously together.</div>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="card-header">
+          <div class="card-icon" style="background:#E6F4EC;"><svg viewBox="0 0 24 24" fill="none" stroke="#2A7A45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <span class="card-label">Section Introduction</span><span class="card-sub">— choose your audience</span>
+        </div>
+        <div class="card-body">
+          <div class="audience-tabs">
+            <button class="aud-tab active" onclick="switchTab(this,'sg-full')"><span class="dot" style="background:#1B2A4A;"></span>Full Staff Version</button>
+            <button class="aud-tab" onclick="switchTab(this,'sg-concise')"><span class="dot" style="background:#C9952A;"></span>Concise Version</button>
+            <button class="aud-tab" onclick="switchTab(this,'sg-vol')"><span class="dot" style="background:#2A7A45;"></span>Volunteer Version</button>
+          </div>
+          <div id="sg-full" class="tab-pane active">
+            <p>Safeguarding is a non-negotiable responsibility for all staff, volunteers, and partners of World YMCA. This section sets out the organisation's duty of care obligations and the procedures that must be followed to protect children, young people, and vulnerable adults in every context in which the organisation operates, including in-person programmes, digital environments, and partner-managed activities.</p>
+            <p>All staff are required to complete mandatory safeguarding training, understand their reporting obligations, and act immediately on any concern or disclosure. Failure to report a safeguarding concern is a serious breach of policy. Always use the current version of this policy, as procedures may be updated in response to evolving best practice or regulatory requirements.</p>
+            <span class="audience-note"><span class="dot" style="background:#1B2A4A;"></span>For permanent and contract staff</span>
+          </div>
+          <div id="sg-concise" class="tab-pane">
+            <p>This section outlines World YMCA's safeguarding obligations and duty of care responsibilities. All staff must complete safeguarding training, know their reporting obligations, and act on any concern without delay. Safeguarding applies in all programme contexts, including digital and partner-led activities. Always refer to the current version published here.</p>
+            <span class="audience-note"><span class="dot" style="background:#C9952A;"></span>Quick reference — all staff</span>
+          </div>
+          <div id="sg-vol" class="tab-pane">
+            <p>Keeping everyone safe is one of the most important things we do at World YMCA. This section explains what we mean by safeguarding and what you should do if you are ever worried about someone's safety or wellbeing. If you see or hear something concerning, please tell a staff member straight away.</p>
+            <span class="audience-note"><span class="dot" style="background:#2A7A45;"></span>For volunteers and partners</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="card-header"><div class="card-icon" style="background:#FEF8EC;"><svg viewBox="0 0 24 24" fill="none" stroke="#C9952A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span class="card-label">Key Principles</span></div>
+        <div class="card-body">
+          <ul class="principles-list">
+            <li><span class="principle-num">01</span><div class="principle-content"><div class="principle-title">Safety is Unconditional</div><div class="principle-text">The safety and wellbeing of children, young people, and vulnerable adults takes precedence over all other considerations, including organisational reputation or convenience.</div></div></li>
+            <li><span class="principle-num">02</span><div class="principle-content"><div class="principle-title">Mandatory Reporting</div><div class="principle-text">All staff and volunteers have an obligation to report any safeguarding concern, disclosure, or incident through the designated reporting channel without delay.</div></div></li>
+            <li><span class="principle-num">03</span><div class="principle-content"><div class="principle-title">Safe Recruitment Practices</div><div class="principle-text">All individuals working with children or vulnerable groups must pass a background check and attend safeguarding induction before taking up their role.</div></div></li>
+            <li><span class="principle-num">04</span><div class="principle-content"><div class="principle-title">Dignity and Respect</div><div class="principle-text">Every individual has the right to be treated with dignity. Abusive, exploitative, or discriminatory behaviour in any form is a safeguarding matter.</div></div></li>
+            <li><span class="principle-num">05</span><div class="principle-content"><div class="principle-title">Continuous Learning</div><div class="principle-text">Safeguarding training is not a one-time event. World YMCA requires regular refresher training and updates procedures in line with evolving international standards.</div></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="card-header"><div class="card-icon" style="background:#EEF2FA;"><svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><span class="card-label">Policy Highlights</span></div>
+        <div class="card-body">
+          <div class="highlights-grid">
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Designated Safeguarding Lead</div><div class="h-text">Every programme or activity must have a named Designated Safeguarding Lead (DSL) responsible for receiving and acting on concerns.</div></div>
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Reporting Timeline</div><div class="h-text">All safeguarding concerns must be reported to the DSL within 24 hours. Urgent cases require immediate escalation.</div></div>
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Confidentiality Limits</div><div class="h-text">Safeguarding concerns are not subject to standard confidentiality. Safety obligations override personal privacy in all cases.</div></div>
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Digital Safeguarding</div><div class="h-text">Online interactions with participants are governed by the same principles as in-person contact. Separate guidance is available for digital programmes.</div></div>
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Partner Organisations</div><div class="h-text">All partner organisations delivering activities on behalf of World YMCA must confirm alignment with this policy before engagement begins.</div></div>
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Incident Records</div><div class="h-text">All reported concerns and incidents are recorded in the confidential safeguarding register, maintained by the DSL and reviewed regularly.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="card-header"><div class="card-icon" style="background:#E6F4EC;"><svg viewBox="0 0 24 24" fill="none" stroke="#2A7A45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="card-label">Quick Reference</span><span class="card-sub">— what to do and what to avoid</span></div>
+        <div class="card-body">
+          <div class="dodonts">
+            <div class="do-col">
+              <div class="do-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Please do</div>
+              <ul class="do-list">
+                <li>Complete mandatory safeguarding training before working with any participant group</li>
+                <li>Report any concern, disclosure, or unusual behaviour to the DSL immediately</li>
+                <li>Listen carefully and without judgment when someone discloses a concern</li>
+                <li>Follow the documented reporting procedure even when you are uncertain</li>
+                <li>Maintain appropriate physical and digital boundaries at all times</li>
+              </ul>
+            </div>
+            <div class="dont-col">
+              <div class="dont-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Please avoid</div>
+              <ul class="dont-list">
+                <li>Investigating a concern yourself — report it and let the procedure take over</li>
+                <li>Promising confidentiality to someone making a disclosure</li>
+                <li>Contacting a participant's family without guidance from the DSL in a live case</li>
+                <li>Sharing case details with colleagues who are not directly involved</li>
+                <li>Assuming someone else has already reported — always report independently</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="card-header"><div class="card-icon" style="background:#FEF0F2;"><svg viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><span class="card-label">Frequently Asked Questions</span></div>
+        <div class="card-body">
+          <ul class="faq-list">
+            <li class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">1</span><span class="faq-q-text">What if I am unsure whether something constitutes a safeguarding concern?</span><span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a">If you are in doubt, report it. The DSL is trained to assess the level of concern and determine the appropriate response. Erring on the side of caution is always the right approach in safeguarding.</div></li>
+            <li class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">2</span><span class="faq-q-text">Can a participant ask me to keep a disclosure secret?</span><span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a">No. You must not promise confidentiality in a safeguarding context. If a participant discloses something, explain calmly that you are there to support them but that you may need to share the information with someone who can help.</div></li>
+            <li class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">3</span><span class="faq-q-text">Does safeguarding apply to digital and online programme delivery?</span><span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a">Yes. The same safeguarding principles apply in digital environments, including online communications, virtual sessions, and social media interactions with participants. The Digital Safeguarding Guidance is available on this portal.</div></li>
+            <li class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">4</span><span class="faq-q-text">How do I find out who the current Designated Safeguarding Lead is?</span><span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a">The current DSL is listed on the Safeguarding section of this portal and displayed in all programme venues. You may also contact the HR department or your line manager for confirmation.</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════════════
+         PROGRAMME DELIVERY
+    ══════════════════════════════ -->
+    <div id="sec-programmes" class="policy-section">
+      <div class="breadcrumb">
+        <a onclick="goHub()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Policies Hub</a>
+        <span class="sep">›</span><span class="current">Programme Delivery Protocols</span>
+      </div>
+
+      <div class="section-hero" style="background:linear-gradient(135deg,#FEF8EC 0%,#FAECD4 100%);color:#5A3A00;">
+        <div class="hero-icon" style="background:rgba(255,255,255,0.7);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C9952A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="hero-text">
+          <div class="hero-kicker">World YMCA · Policies &amp; Guidelines</div>
+          <div class="hero-title">Programme Delivery Protocols</div>
+          <div class="hero-desc">The standards and processes that help us design, deliver, and evaluate our programmes with consistency, quality, and genuine impact for every community we serve.</div>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="card-header"><div class="card-icon" style="background:#FEF8EC;"><svg viewBox="0 0 24 24" fill="none" stroke="#C9952A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><span class="card-label">Section Introduction</span><span class="card-sub">— choose your audience</span></div>
+        <div class="card-body">
+          <div class="audience-tabs">
+            <button class="aud-tab active" onclick="switchTab(this,'pd-full')"><span class="dot" style="background:#1B2A4A;"></span>Full Staff Version</button>
+            <button class="aud-tab" onclick="switchTab(this,'pd-concise')"><span class="dot" style="background:#C9952A;"></span>Concise Version</button>
+            <button class="aud-tab" onclick="switchTab(this,'pd-vol')"><span class="dot" style="background:#2A7A45;"></span>Volunteer Version</button>
+          </div>
+          <div id="pd-full" class="tab-pane active">
+            <p>This section establishes the standards and protocols that govern the design, delivery, monitoring, and evaluation of all programmes undertaken by or on behalf of World YMCA. These protocols apply to staff and volunteers involved in programme work, including activities delivered through member organisations and external partners.</p>
+            <p>The protocols cover programme planning and approval, participant eligibility, risk assessment, delivery standards, monitoring and data collection, reporting obligations, and post-programme evaluation. Adherence to these protocols ensures that all programme activity aligns with World YMCA's strategic commitments, donor requirements, and quality standards. Always refer to the current version published here.</p>
+            <span class="audience-note"><span class="dot" style="background:#1B2A4A;"></span>For permanent and contract staff</span>
+          </div>
+          <div id="pd-concise" class="tab-pane">
+            <p>This section sets out World YMCA's Programme Delivery Protocols, covering planning, approval, risk assessment, participant eligibility, monitoring, and reporting. All staff involved in programme work must follow these protocols to ensure quality, compliance, and strategic alignment. Always refer to the current version published here.</p>
+            <span class="audience-note"><span class="dot" style="background:#C9952A;"></span>Quick reference — all staff</span>
+          </div>
+          <div id="pd-vol" class="tab-pane">
+            <p>This section explains how World YMCA plans and runs its programmes. It covers what we expect from everyone involved in delivering activities, from how we prepare to how we follow up. If you are helping deliver a programme, please read the guidance that applies to your role.</p>
+            <span class="audience-note"><span class="dot" style="background:#2A7A45;"></span>For volunteers and partners</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="card-header"><div class="card-icon" style="background:#FEF8EC;"><svg viewBox="0 0 24 24" fill="none" stroke="#C9952A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span class="card-label">Key Principles</span></div>
+        <div class="card-body">
+          <ul class="principles-list">
+            <li><span class="principle-num">01</span><div class="principle-content"><div class="principle-title">Values-Aligned Design</div><div class="principle-text">All programmes must reflect World YMCA's core values of respect, responsibility, honesty, and care, from conception through delivery and evaluation.</div></div></li>
+            <li><span class="principle-num">02</span><div class="principle-content"><div class="principle-title">Participant-Centred Delivery</div><div class="principle-text">Programmes are designed around the needs, rights, and contexts of participants. Feedback mechanisms must be embedded at every stage of the programme cycle.</div></div></li>
+            <li><span class="principle-num">03</span><div class="principle-content"><div class="principle-title">Risk-Aware Planning</div><div class="principle-text">A formal risk assessment is required for all programmes prior to delivery. Risks must be identified, mitigated, and reviewed throughout the programme lifecycle.</div></div></li>
+            <li><span class="principle-num">04</span><div class="principle-content"><div class="principle-title">Accountability and Transparency</div><div class="principle-text">Programmes must be documented, monitored against agreed indicators, and reported on accurately. Data must not be manipulated to misrepresent outcomes.</div></div></li>
+            <li><span class="principle-num">05</span><div class="principle-content"><div class="principle-title">Continuous Improvement</div><div class="principle-text">Post-programme evaluation findings must feed into future planning. Learning is treated as a programme deliverable, not an optional add-on.</div></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="card-header"><div class="card-icon" style="background:#EEF2FA;"><svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><span class="card-label">Policy Highlights</span></div>
+        <div class="card-body">
+          <div class="highlights-grid">
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Programme Approval</div><div class="h-text">All new programmes require formal sign-off from the Programme Manager before any participant-facing activity begins.</div></div>
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Risk Assessment</div><div class="h-text">A completed risk assessment form must be submitted and approved at least five working days before in-person delivery commences.</div></div>
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Participant Consent</div><div class="h-text">Informed consent must be obtained from all participants, or guardians where participants are minors, prior to enrolment.</div></div>
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Monitoring and Reporting</div><div class="h-text">Programme teams must submit mid-delivery and end-of-programme reports using the standard templates available on this portal.</div></div>
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Partner Accountability</div><div class="h-text">Partner organisations are contractually bound by these protocols and subject to the same monitoring and reporting expectations.</div></div>
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Data Handling</div><div class="h-text">Participant data must be managed in accordance with the World YMCA Data Protection Policy and applicable local regulations.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="card-header"><div class="card-icon" style="background:#E6F4EC;"><svg viewBox="0 0 24 24" fill="none" stroke="#2A7A45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="card-label">Quick Reference</span><span class="card-sub">— what to do and what to avoid</span></div>
+        <div class="card-body">
+          <div class="dodonts">
+            <div class="do-col">
+              <div class="do-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Please do</div>
+              <ul class="do-list">
+                <li>Submit your programme plan and risk assessment for approval before delivery begins</li>
+                <li>Collect participant consent documentation before any activity</li>
+                <li>Use the standard monitoring templates for all mid-delivery and final reports</li>
+                <li>Document any significant deviations from the approved programme plan</li>
+                <li>Embed a participant feedback mechanism in every programme cycle</li>
+              </ul>
+            </div>
+            <div class="dont-col">
+              <div class="dont-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Please avoid</div>
+              <ul class="dont-list">
+                <li>Beginning delivery before the programme has received formal written approval</li>
+                <li>Modifying scope, target group, or delivery method without submitting an amendment</li>
+                <li>Reporting on activities that did not take place or inflating participation figures</li>
+                <li>Retaining participant data beyond the period in the data retention schedule</li>
+                <li>Engaging a partner organisation without first confirming their policy alignment</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="card-header"><div class="card-icon" style="background:#FEF0F2;"><svg viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><span class="card-label">Frequently Asked Questions</span></div>
+        <div class="card-body">
+          <ul class="faq-list">
+            <li class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">1</span><span class="faq-q-text">What is the process if we need to change the scope of an approved programme?</span><span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a">Submit a Programme Amendment Form to your Programme Manager. Minor adjustments may be approved within five working days. Significant changes to scope, budget, or target groups require review by the senior team and, in some cases, donor notification.</div></li>
+            <li class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">2</span><span class="faq-q-text">Who is responsible for collecting and storing participant consent forms?</span><span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a">The Programme Lead for each activity is responsible. Digital consent forms must be saved in the designated programme folder, and physical forms must be scanned and stored within 48 hours of collection.</div></li>
+            <li class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">3</span><span class="faq-q-text">Are the reporting templates mandatory or can we use our own format?</span><span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a">The standard templates are mandatory for all internal and donor-facing reporting. If a specific donor requires a different format, the Programme Manager must approve the alternative and ensure it captures the same core data points.</div></li>
+            <li class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">4</span><span class="faq-q-text">How should we handle a situation where a programme is not going to plan?</span><span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a">Notify your Programme Manager immediately and document the issue and steps taken. World YMCA expects accurate and timely reporting of challenges, not just successes. Escalation protocols are outlined in the Programme Delivery Manual.</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════════════
+         CODE OF CONDUCT
+    ══════════════════════════════ -->
+    <div id="sec-conduct" class="policy-section">
+      <div class="breadcrumb">
+        <a onclick="goHub()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Policies Hub</a>
+        <span class="sep">›</span><span class="current">Code of Conduct &amp; Professional Standards</span>
+      </div>
+
+      <div class="section-hero" style="background:linear-gradient(135deg,#FEF0F2 0%,#FADCE0 100%);color:#6A0E1C;">
+        <div class="hero-icon" style="background:rgba(255,255,255,0.7);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+        </div>
+        <div class="hero-text">
+          <div class="hero-kicker">World YMCA · Policies &amp; Guidelines</div>
+          <div class="hero-title">Code of Conduct &amp; Professional Standards</div>
+          <div class="hero-desc">The shared values and behavioural expectations that guide how we act, communicate, and represent World YMCA — in the office, in the field, and everywhere in between.</div>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="card-header"><div class="card-icon" style="background:#FEF0F2;"><svg viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><span class="card-label">Section Introduction</span><span class="card-sub">— choose your audience</span></div>
+        <div class="card-body">
+          <div class="audience-tabs">
+            <button class="aud-tab active" onclick="switchTab(this,'cc-full')"><span class="dot" style="background:#1B2A4A;"></span>Full Staff Version</button>
+            <button class="aud-tab" onclick="switchTab(this,'cc-concise')"><span class="dot" style="background:#C9952A;"></span>Concise Version</button>
+            <button class="aud-tab" onclick="switchTab(this,'cc-vol')"><span class="dot" style="background:#2A7A45;"></span>Volunteer Version</button>
+          </div>
+          <div id="cc-full" class="tab-pane active">
+            <p>The Code of Conduct and Professional Standards defines the behavioural and ethical expectations that apply to all staff, volunteers, and partners acting on behalf of World YMCA. These standards reflect the organisation's core values and the trust placed in all those who represent the World YMCA movement globally.</p>
+            <p>This section covers professional conduct in the workplace, external representation, use of organisational resources, social media, conflict of interest, and the handling of gifts or hospitality. All staff are required to read and comply with this code as a condition of their engagement with World YMCA. Breaches may result in disciplinary action. Always refer to the current version published here, as this document is reviewed annually.</p>
+            <span class="audience-note"><span class="dot" style="background:#1B2A4A;"></span>For permanent and contract staff</span>
+          </div>
+          <div id="cc-concise" class="tab-pane">
+            <p>This section sets out the Code of Conduct and Professional Standards for all World YMCA staff, covering workplace behaviour, external representation, resource use, social media, and conflicts of interest. Compliance is a condition of employment. Always refer to the current version published here, as the code is reviewed annually.</p>
+            <span class="audience-note"><span class="dot" style="background:#C9952A;"></span>Quick reference — all staff</span>
+          </div>
+          <div id="cc-vol" class="tab-pane">
+            <p>When you work or volunteer with World YMCA, you represent our values and our community. This section explains how we ask everyone to behave, both within the organisation and when speaking or acting on our behalf. Please take a moment to read what we expect and why it matters.</p>
+            <span class="audience-note"><span class="dot" style="background:#2A7A45;"></span>For volunteers and partners</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="card-header"><div class="card-icon" style="background:#FEF8EC;"><svg viewBox="0 0 24 24" fill="none" stroke="#C9952A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span class="card-label">Key Principles</span></div>
+        <div class="card-body">
+          <ul class="principles-list">
+            <li><span class="principle-num">01</span><div class="principle-content"><div class="principle-title">Integrity in All Actions</div><div class="principle-text">Staff must act with honesty and transparency in all professional dealings, including communications, decisions, and the use of organisational resources.</div></div></li>
+            <li><span class="principle-num">02</span><div class="principle-content"><div class="principle-title">Respect for All Individuals</div><div class="principle-text">Every person, whether a colleague, participant, partner, or member of the public, is entitled to respectful and non-discriminatory treatment.</div></div></li>
+            <li><span class="principle-num">03</span><div class="principle-content"><div class="principle-title">Responsible Representation</div><div class="principle-text">When speaking or acting in a professional capacity, staff represent World YMCA. Public statements must not contradict organisational positions without prior authorisation.</div></div></li>
+            <li><span class="principle-num">04</span><div class="principle-content"><div class="principle-title">Accountability for Decisions</div><div class="principle-text">Staff are accountable for decisions they make in their roles. Where guidance is unclear, escalating to a line manager is always preferable to acting unilaterally.</div></div></li>
+            <li><span class="principle-num">05</span><div class="principle-content"><div class="principle-title">Protection of Organisational Trust</div><div class="principle-text">The credibility of World YMCA depends on the conduct of everyone who works for it. Actions that damage trust, inside or outside the organisation, are a code breach.</div></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="card-header"><div class="card-icon" style="background:#EEF2FA;"><svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><span class="card-label">Policy Highlights</span></div>
+        <div class="card-body">
+          <div class="highlights-grid">
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Social Media</div><div class="h-text">Staff must not post content that could bring World YMCA into disrepute, disclose confidential information, or misrepresent the organisation's positions.</div></div>
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Gifts and Hospitality</div><div class="h-text">Gifts above a defined threshold must be declared. Accepting hospitality that could influence a professional decision is prohibited.</div></div>
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Use of Resources</div><div class="h-text">Organisational assets, including technology, funds, and intellectual property, must be used for legitimate professional purposes only.</div></div>
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Whistleblowing</div><div class="h-text">World YMCA protects staff who raise genuine concerns in good faith. Retaliation against a whistleblower is a serious breach of this code.</div></div>
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>External Commitments</div><div class="h-text">Board memberships, advisory roles, or public positions held outside World YMCA must be disclosed and must not create conflicts of interest.</div></div>
+            <div class="highlight-item"><div class="h-title"><span class="h-dot"></span>Dress and Conduct</div><div class="h-text">Professional appearance and conduct standards apply in all formal settings, including external meetings, events, and organisation-led activities.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="card-header"><div class="card-icon" style="background:#E6F4EC;"><svg viewBox="0 0 24 24" fill="none" stroke="#2A7A45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="card-label">Quick Reference</span><span class="card-sub">— what to do and what to avoid</span></div>
+        <div class="card-body">
+          <div class="dodonts">
+            <div class="do-col">
+              <div class="do-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Please do</div>
+              <ul class="do-list">
+                <li>Disclose any gifts, hospitality, or potential conflicts of interest promptly</li>
+                <li>Speak and act with integrity in all professional settings, including informal ones</li>
+                <li>Use organisational resources for legitimate work purposes</li>
+                <li>Raise concerns through the whistleblowing procedure if you witness a serious breach</li>
+                <li>Seek guidance from your line manager when facing an ethical dilemma</li>
+              </ul>
+            </div>
+            <div class="dont-col">
+              <div class="dont-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Please avoid</div>
+              <ul class="dont-list">
+                <li>Posting publicly in a way that could misrepresent or embarrass the organisation</li>
+                <li>Accepting gifts or hospitality that could influence a professional decision</li>
+                <li>Using your position to obtain personal benefits or commercial advantage</li>
+                <li>Retaliating against a colleague who raises a concern in good faith</li>
+                <li>Making public commitments on behalf of World YMCA without authorisation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="card-header"><div class="card-icon" style="background:#FEF0F2;"><svg viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><span class="card-label">Frequently Asked Questions</span></div>
+        <div class="card-body">
+          <ul class="faq-list">
+            <li class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">1</span><span class="faq-q-text">Can I share opinions about World YMCA's work on my personal social media?</span><span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a">You may share positive news and publicly available information. However, you must not post content that contradicts official positions, discloses internal information, or could bring the organisation into disrepute. When in doubt, ask your manager before posting.</div></li>
+            <li class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">2</span><span class="faq-q-text">What counts as a conflict of interest?</span><span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a">A conflict of interest arises when your personal interests, or those of someone close to you, could influence or appear to influence a professional decision. Common examples include evaluating a tender from a company you have a financial interest in, or managing a direct report who is a family member. Disclosure is always the correct first step.</div></li>
+            <li class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">3</span><span class="faq-q-text">What is the threshold for declaring a gift?</span><span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a">Gifts with a value above CHF 50 must be declared to your line manager and recorded in the gifts register. Gifts of any value from individuals or organisations involved in active procurement decisions must be declined and reported.</div></li>
+            <li class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">4</span><span class="faq-q-text">How is a whistleblowing concern handled once it is submitted?</span><span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a">All concerns are reviewed by a designated senior officer independent of the reported matter. The person raising the concern is protected from retaliation and, where possible, kept informed of progress. Full details are in the Whistleblowing Policy document on this portal.</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(key, btn) {
+  document.querySelectorAll('.policy-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec-' + key).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (window.innerWidth <= 768) toggleSidebar(false);
+}
+
+function switchTab(btn, paneId) {
+  const card = btn.closest('.content-card');
+  card.querySelectorAll('.aud-tab').forEach(t => t.classList.remove('active'));
+  card.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(paneId).classList.add('active');
+}
+
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('open');
+  btn.closest('.faq-list').querySelectorAll('.faq-q.open').forEach(q => {
+    q.classList.remove('open');
+    q.nextElementSibling.classList.remove('open');
+  });
+  if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
+}
+
+function toggleSidebar(forceClose) {
+  const s = document.getElementById('sidebar');
+  const o = document.getElementById('overlay');
+  if (forceClose === false || s.classList.contains('open')) {
+    s.classList.remove('open'); o.classList.remove('open');
+  } else {
+    s.classList.add('open'); o.classList.add('open');
+  }
+}
+
+function goHub() {
+  document.querySelectorAll('.policy-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec-hub').classList.add('active');
+  document.getElementById('nav-hub').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (window.innerWidth <= 768) toggleSidebar(false);
+}
+</script>
+</body>
+</html>
